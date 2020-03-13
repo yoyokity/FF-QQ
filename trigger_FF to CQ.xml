@@ -1,0 +1,218 @@
+<?xml version="1.0"?>
+<TriggernometryExport Version="1">
+  <ExportedFolder Id="e11abf38-ae40-4353-8515-2a87a562e14b" Name="FF-QQ(Trigger端)" Enabled="true">
+    <Folders>
+      <Folder Id="19ce4524-8824-49c9-bcb0-00e40549c74f" Name="系统控制" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Name="关机" Id="83fde156-9474-46ec-8ed9-4cdfbcd0965f" RegularExpression="(?&lt;time&gt;.{9}).[0-9]{3}] 00:0038:关机">
+            <Actions>
+              <Action OrderNumber="1" LogMessageText="_QQBOT:5秒后将为您关闭计算机" LogProcess="True" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" LaunchProcessWindowStyle="Hidden" LaunchProcessPathExpression="C:\Windows\System32\cmd.exe" LaunchProcessCmdlineExpression="/c shutdown -s -t" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LaunchProcess" ExecutionDelayExpression="5000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="关闭游戏" Id="cfeef2ea-c704-4a68-89dc-0e77b4fa2148" RegularExpression="(?&lt;time&gt;.{9}).[0-9]{3}] 00:0038:关闭游戏">
+            <Actions>
+              <Action OrderNumber="1" LogMessageText="_QQBOT:5秒后将为您关闭FFXIV" LogProcess="True" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" LaunchProcessPathExpression="C:\Windows\System32\cmd.exe" LaunchProcessCmdlineExpression="/c taskkill /f /im  ffxiv_dx11.exe&amp;&amp;%taskkill /f /im  ffxiv.exe&amp;&amp;%1 mshta vbscript:CreateObject(&quot;Shell.Application&quot;).ShellExecute(&quot;cmd.exe&quot;,&quot;/c %~s0 ::&quot;,&quot;&quot;,&quot;runas&quot;,1)(window.close)&amp;&amp;exit" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LaunchProcess" ExecutionDelayExpression="5000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+        </Triggers>
+      </Folder>
+      <Folder Id="5ca07443-33a0-4896-9a17-a48b24c2a35c" Name="消息转发" Enabled="true">
+        <Folders>
+          <Folder Id="080a0572-f5ca-4003-8d64-3f2f61dc510a" Name="表情动作" Enabled="true">
+            <Folders />
+            <Triggers>
+              <Trigger Enabled="true" Name="em宏" Id="f31275d6-5b55-4d22-bcd3-f1c51b77aa1f" RegularExpression="(?&lt;time&gt;.{9}).[0-9]{3}] 00:001c:(?&lt;test&gt;.*)">
+                <Actions>
+                  <Action OrderNumber="1" LogMessageText="_QQBOT:${time}] (em宏) ${test}" LogProcess="True" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Trigger>
+              <Trigger Enabled="true" Name="系统表情" Id="fa2a9f2f-295f-4fbf-9d4a-27b01df2ec09" RegularExpression="(?&lt;time&gt;.{9}).[0-9]{3}] 00:001d:(?&lt;test&gt;.*)">
+                <Actions>
+                  <Action OrderNumber="1" LogMessageText="_QQBOT:${time}] (表情) ${test}" LogProcess="True" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Trigger>
+            </Triggers>
+          </Folder>
+          <Folder Id="90d8adf4-68dd-4b73-970b-b9e5b511bf33" Name="聊天消息" Enabled="true">
+            <Folders />
+            <Triggers>
+              <Trigger Enabled="true" Name="部队" Id="e4aae2b4-22a7-44be-b5a5-d1f76caf444c" RegularExpression="(?&lt;time&gt;.{9}).[0-9]{3}] 00:0018:(?&lt;test&gt;.*)">
+                <Actions>
+                  <Action OrderNumber="1" LogMessageText="_QQBOT:${time}] (部队) ${test}" LogProcess="True" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Trigger>
+              <Trigger Enabled="true" Name="喊话（橙字）" Id="931df3bf-e451-4410-9f28-00ca8a06ec2e" RegularExpression="(?&lt;time&gt;.{9}).[0-9]{3}] 00:000b:(?&lt;test&gt;.*)">
+                <Actions>
+                  <Action OrderNumber="1" LogMessageText="_QQBOT:${time}] (喊话) ${test}" LogProcess="True" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Trigger>
+              <Trigger Enabled="true" Name="呼喊（黄字）" Id="5d9f858d-8e94-4d78-a7c6-f6ed91747bd1" RegularExpression="(?&lt;time&gt;.{9}).[0-9]{3}] 00:001e:(?&lt;test&gt;.*)">
+                <Actions>
+                  <Action OrderNumber="1" LogMessageText="_QQBOT:${time}] (呼喊) ${test}" LogProcess="True" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Trigger>
+              <Trigger Enabled="true" Name="说话（白字）" Id="50564ce7-5eee-481a-8b95-d23f1f4b045c" RegularExpression="(?&lt;time&gt;.{9}).[0-9]{3}] 00:000a:(?&lt;test&gt;.*)">
+                <Actions>
+                  <Action OrderNumber="1" LogMessageText="_QQBOT:${time}] (说话) ${test}" LogProcess="True" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Trigger>
+              <Trigger Enabled="true" Name="私聊" Id="c3dbda23-64dd-44ab-9053-f37ef824dd36" RegularExpression="(?&lt;time&gt;.{9}).[0-9]{3}] 00:000d:(?&lt;test&gt;.*)">
+                <Actions>
+                  <Action OrderNumber="1" LogMessageText="_QQBOT:${time}] (私聊) ${test}" LogProcess="True" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Trigger>
+              <Trigger Enabled="true" Name="小队" Id="b67d74f7-9d63-47e4-8d21-5288c2b372ca" RegularExpression="(?&lt;time&gt;.{9}).[0-9]{3}] 00:000e:(?&lt;test&gt;.*)">
+                <Actions>
+                  <Action OrderNumber="1" LogMessageText="_QQBOT:${time}] (小队) ${test}" LogProcess="True" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Trigger>
+            </Triggers>
+          </Folder>
+          <Folder Id="546dcb25-b1f6-46af-9b17-978afd8dced2" Name="系统消息" Enabled="true">
+            <Folders />
+            <Triggers>
+              <Trigger Enabled="true" Name="部队成员上下线通知" Id="8710ed20-7f90-4d1b-b982-399a904f6ba7" RegularExpression="(?&lt;time&gt;.{9}).[0-9]{3}] 00:2246:(?&lt;test&gt;.*)">
+                <Actions>
+                  <Action OrderNumber="1" LogMessageText="_QQBOT:${time}] ${test}" LogProcess="True" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Trigger>
+              <Trigger Enabled="true" Name="系统消息（灰字）" Id="8712a9c2-bf6e-46ec-81ff-3a49c861e22c" RegularExpression="(?&lt;time&gt;.{9}).[0-9]{3}] 00:0039:(?&lt;test&gt;.*)">
+                <Actions>
+                  <Action OrderNumber="1" LogMessageText="_QQBOT:${time}] 系统消息：${test}" LogProcess="True" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="LogMessage">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+            </Triggers>
+          </Folder>
+        </Folders>
+        <Triggers />
+      </Folder>
+      <Folder Id="0aaa340c-941f-49de-b284-8b164f107011" Name=" 设置" Enabled="false">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="false" Name=" QQ设置（獭獭）" Id="8d5bf107-fcc5-4438-8e95-74e78c098e2a" RegularExpression="_QQBOT:(?&lt;test&gt;.*)">
+            <Actions>
+              <Action OrderNumber="1" VariableOp="SetString" VariableName="你的qq" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+              <Action OrderNumber="2" VariableOp="SetString" VariableName="机器人qq" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+              <Action OrderNumber="3" VariableOp="SetString" VariableName="token" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+              <Action OrderNumber="4" DiscordWebhookURL="https://xn--v9x.net/api/?tracker=qq&amp;bot_qq=${var:机器人qq}&amp;qq=${var:你的qq}&amp;token=${var:token}" DiscordWebhookMessage="${test}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="DiscordWebhook" ExecutionDelayExpression="1000">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+              <Action OrderNumber="5" DiscordWebhookURL="https://botapi.dead-war.cn/api/?tracker=qq&amp;bot_qq=${var:机器人qq}&amp;qq=${var:你的qq}&amp;token=${var:token}" DiscordWebhookMessage="${test}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="DiscordWebhook">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+              <Action OrderNumber="6" DiscordWebhookURL="https://moguke.top:45015/api/?tracker=qq&amp;bot_qq=${var:机器人qq}&amp;qq=${var:你的qq}&amp;token=${var:token}" DiscordWebhookMessage="${test}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="DiscordWebhook">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+              <Action OrderNumber="7" DiscordWebhookURL="https://tata.guomie.club/api/?tracker=qq&amp;bot_qq=${var:机器人qq}&amp;qq=${var:你的qq}&amp;token=${var:token}" DiscordWebhookMessage="${test}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="DiscordWebhook">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+              <Action OrderNumber="8" DiscordWebhookURL="https://bot.pencilss.top/api/?tracker=qq&amp;bot_qq=${var:机器人qq}&amp;qq=${var:你的qq}&amp;token=${var:token}" DiscordWebhookMessage="${test}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="DiscordWebhook">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name=" QQ设置（自己配置）" Id="9d1ec331-388f-48a5-b9b9-aecb4f5208ba" RegularExpression="_QQBOT:(?&lt;test&gt;.*)">
+            <Actions>
+              <Action OrderNumber="1" VariableOp="SetString" VariableName="你的qq" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+              <Action OrderNumber="2" VariableOp="SetString" VariableName="token" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+              <Action OrderNumber="3" VariableOp="SetString" VariableName="BOT主机IP" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+              <Action OrderNumber="4" DiscordWebhookURL="http://${var:BOT主机IP}:5700/send_private_msg?access_token=${var:token}&amp;user_id=1125404308&amp;message=${test}" JsonEndpointExpression="http://175.24.101.168:5700/send_private_msg?access_token=a9006667&amp;user_id=1125404308&amp;message=789" JsonPayloadExpression="123" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="DiscordWebhook" ExecutionDelayExpression="100">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Trigger>
+        </Triggers>
+      </Folder>
+    </Folders>
+    <Triggers />
+  </ExportedFolder>
+</TriggernometryExport>
